@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- custom css file link -->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+<h3 class="heading"> video gallery </h3>
+    
+<div class="container">
+    
+    <div class="main-video">
+        <div class="video">
+            <video src="images/jai_shree_ram.mp4" controls muted autoplay></video>
+            <h3 class="title">01. video title goes here</h3>
+        </div>
+    </div>
+
+    
+    <div class="video-list">
+        <div class="vid active">
+            <video src="images/jai_shree_ram.mp4" controls muted autoplay></video>
+            <h3 class="title">01. video title goes here</h3>
+        </div>
+        <div class="vid">
+            <video src="images/wed_02.mp4" controls muted autoplay></video>
+            <h3 class="title">02. video title goes here</h3>
+        </div>
+        <div class="vid">
+            <video src="images/wed_03.mp4" controls muted autoplay></video>
+            <h3 class="title">03. video title goes here</h3>
+        </div>
+        <div class="vid">
+            <video src="images/wed_04.mp4" controls muted autoplay></video>
+            <h3 class="title">04. video title goes here</h3>
+        </div>
+        <div class="vid">
+            <video src="images/wed_05.mp4" controls muted autoplay></video>
+            <h3 class="title">05. video title goes here</h3>
+        </div>
+        <div class="vid">
+            <video src="images/wed_01.mp4" controls muted autoplay></video>
+            <h3 class="title">01. video title goes here</h3>
+        </div>
+        <div class="vid">
+            <video src="images/wed_01.mp4" controls muted autoplay></video>
+            <h3 class="title">01. video title goes here</h3>
+        </div>
+        <div class="vid">
+            <video src="images/wed_01.mp4" controls muted autoplay></video>
+            <h3 class="title">01. video title goes here</h3>
+        </div>
+    </div>
+    
+    
+    
+</div>
+  
+    
+<script>
+    
+let listVideo = document.querySelectorAll('.video-list .vid'); 
+let mainVideo = document.querySelector('.main-video video'); 
+let title = document.querySelector('.main-video .title');
+    
+listVideo.forEach(video =>{
+    video.onclick = () =>{
+        listVideo.forEach(vid => vid.classList.remove('active')); 
+        video.classList.add('active');
+        if(video.classList.contains('active')){
+            let src = video.children[0].getAttribute('src');
+            mainVideo.src = src;
+            let text = video.children[1].innerHTML;
+            title.innerHTML = text;
+        };
+    };
+});
+</script>
+       
+</body>   
+</html>
